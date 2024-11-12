@@ -118,8 +118,8 @@ export default async function decorate(block) {
   const nav = document.createElement('nav');
   nav.id = 'nav';
   while (fragment.firstElementChild) nav.append(fragment.firstElementChild);
-
-  const classes = ['brand', 'sections', 'tools'];
+  
+  const classes = ['top-sign-in', 'brand', 'sections', 'tools'];
   classes.forEach((c, i) => {
     const section = nav.children[i];
     if (section) section.classList.add(`nav-${c}`);
@@ -134,7 +134,16 @@ export default async function decorate(block) {
 
   const navSections = nav.querySelector('.nav-sections');
   if (navSections) {
+    const currentUrlPath = window.location.pathname;
     navSections.querySelectorAll(':scope .default-content-wrapper > ul > li').forEach((navSection) => {
+      const navLinkUrl = navSection.querySelector('a');
+        if (navLinkUrl) {
+        // Check if the link's href matches the current URL
+          const pathUrl = new URL(navLinkUrl.href, window.location.origin).pathname;
+          if (currentUrlPath === pathUrl) {
+            navSection.classList.add('active');
+          }
+        }
       if (navSection.querySelector('ul')) navSection.classList.add('nav-drop');
       navSection.addEventListener('click', () => {
         if (isDesktop.matches) {
@@ -163,4 +172,18 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+
+  const topSignInWrapper = nav.querySelector('.top-bar-sign-in');
+  block.prepend(topSignInWrapper);
+
+  window.onscroll = function () {
+    const headerWrapper = document.querySelector('.header-wrapper');
+    
+    // more than 50px scrolled
+    if (window.scrollY > 50 && isDesktop.matches) {
+      headerWrapper.classList.add('shirink-nav');
+    } else {
+      headerWrapper.classList.remove('shirink-nav');
+    }
+  };
 }

@@ -1,0 +1,81 @@
+.photographers-cards-container .default-content-wrapper h1 {
+    font-weight: normal;
+    margin-bottom: 25px;
+    margin-top: 27px;
+}
+
+.photographers-cards-container h2 {
+    font-size: 36px;
+    font-weight: normal;
+    margin-bottom: 13.5px;
+    margin-top: 27px;
+}
+.photographers-cards-container h2::after {  
+    content: "";
+    display: block;
+    width: 84px;
+    border-bottom: 2px solid var(--brand-color);
+    padding-top: 8px;
+    margin-bottom: 15px;  
+}
+
+.photographers-cards-container .default-content-wrapper p {
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 2.5;
+    margin-bottom: 14px;
+}
+
+.photographers-cards > ul {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(257px, 1fr));
+    grid-gap: 24px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.photographers-cards > ul > li {
+    text-align: center;
+}
+
+.photographers-cards > ul > li .cards-card-image {
+    line-height: 0;
+}
+
+.photographers-cards > ul > li .cards-card-image img {
+    width: 164px;
+    height: 164px;   
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.photographers-cards .cards-card-body {
+    margin: 0;
+}
+  
+.photographers-cards .cards-card-body h3 {
+    font-size: 24px;
+    font-weight: normal;
+    line-height: 1.5;
+    margin-bottom: 0;
+    margin-top: 12px;
+}
+  
+.photographers-cards .cards-card-body h5 {
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 1.5;
+    font-family: var(--body-font-family);
+    margin-top: 6px;
+    text-transform: uppercase;
+}
+
+.photographers-cards .cards-card-body p a {
+    background-color: var(--background-color-secondary);
+    padding: 10px;
+    margin-top: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}

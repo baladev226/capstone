@@ -10,18 +10,27 @@
  * governing permissions and limitations under the License.
  */
 
+/* "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif */
+ @import url('https://fonts.googleapis.com/css2?family=Asar&family=Source+Sans+3:ital,wght@0,200..900;1,200..900&display=swap');
+
+
 :root {
   /* colors */
   --background-color: white;
   --light-color: #f8f8f8;
   --dark-color: #505050;
-  --text-color: #131313;
+  --text-color: #202020;
   --link-color: #3b63fb;
   --link-hover-color: #1d3ecf;
+  --brand-color: #ffea00;
+  --background-color-secondary: #202020;
+  --background-color-light-gray: #ebebeb;
 
   /* fonts */
-  --body-font-family: roboto, roboto-fallback, sans-serif;
-  --heading-font-family: roboto-condensed, roboto-condensed-fallback, sans-serif;
+  --heading-font-family: "Asar", georgia, "Times New Roman", times, serif;
+  --body-font-family: "Source Sans 3", "Helvetica Neue", helvetica, arial, sans-serif;
+  --fixed-font-family: "Roboto Mono", menlo, consolas, "Liberation Mono", monospace;
+  --font-weight-bold: 600;
 
   /* body sizes */
   --body-font-size-m: 22px;
@@ -168,21 +177,22 @@ a:hover {
 /* buttons */
 a.button:any-link,
 button {
+  font-size: 14px;
   box-sizing: border-box;
   display: inline-block;
   max-width: 100%;
   margin: 12px 0;
-  border: 2px solid transparent;
-  border-radius: 2.4em;
-  padding: 0.5em 1.2em;
+  border: 2px solid transparent; 
+  padding: 1em 2.5em;
   font-family: var(--body-font-family);
   font-style: normal;
   font-weight: 500;
   line-height: 1.25;
+  text-transform: uppercase;
   text-align: center;
   text-decoration: none;
-  background-color: var(--link-color);
-  color: var(--background-color);
+  background-color: var(--brand-color);
+  color: var(--text-color);
   cursor: pointer;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -193,7 +203,7 @@ a.button:hover,
 a.button:focus,
 button:hover,
 button:focus {
-  background-color: var(--link-hover-color);
+  background-color: var(--brand-color);
   cursor: pointer;
 }
 
@@ -238,8 +248,17 @@ main > .section > div {
   padding: 0 24px;
 }
 
+/* main first section element display css */
 main > .section:first-of-type {
   margin-top: 0;
+  padding-top: 194px;
+}
+
+@media (width <= 767px) {
+  /* main first section element display css */
+  main > .section:first-of-type {
+      padding-top: 144px;
+  }
 }
 
 @media (width >= 900px) {
@@ -254,4 +273,13 @@ main .section.highlight {
   background-color: var(--light-color);
   margin: 0;
   padding: 40px 0;
+}
+
+
+/* separator css */
+.separator-line {
+  max-width: 1200px;
+  border: 1px solid;
+  color: var(--background-color-light-gray);
+  margin: 4rem auto !important;
 }
